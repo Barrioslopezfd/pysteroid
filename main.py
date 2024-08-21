@@ -41,7 +41,7 @@ def main():
                 return
             for b in bullet:
                 if b.collision(a):
-                    a.kill()
+                    a.split()
         screen.fill('black')
         for d in drawable:
             d.draw(screen)
