@@ -29,6 +29,10 @@ def main():
 
         for u in updatable:
             u.update(dt)
+        for a in aster:
+            if (player.collision(a)):
+                print('Game Over!')
+                return
         screen.fill('black')
         for d in drawable:
             d.draw(screen)
