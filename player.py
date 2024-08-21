@@ -10,7 +10,7 @@ class Player(CircleShape):
         self.rotation = 0
 
     def draw(self, screen):
-        pygame.draw.polygon(screen, "red", self.triangle(), 2)
+        pygame.draw.polygon(screen, "white", self.triangle(), 2)
 
     # in the player class
     def triangle(self):
