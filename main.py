@@ -9,6 +9,7 @@ def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
+    score = 0
     
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
@@ -37,10 +38,14 @@ def main():
             u.update(dt)
         for a in aster:
             if (player.collision(a)):
-                print('Game Over!')
-                return
+                if player.is_dead():
+                    print(f'Game Over!\n|__Your score is {score}')
+                    return
+                else:
+                    player.respawn()
             for b in bullet:
                 if b.collision(a):
+                    score += 1
                     a.split()
         screen.fill('black')
         for d in drawable:
