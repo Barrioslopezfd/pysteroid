@@ -7,7 +7,11 @@ from shot import Shot
 
 def main():
     pygame.init()
+    bg = pygame.image.load('img/bg.jpg')
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    def Background(image):
+        size = pygame.transform.scale(image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen.blit(size, (0, 0))
     clock = pygame.time.Clock()
     score = 0
     
@@ -48,6 +52,7 @@ def main():
                     score += 1
                     a.split()
         screen.fill('black')
+        Background(bg)
         for d in drawable:
             d.draw(screen)
         pygame.display.flip()
